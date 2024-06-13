@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import Link from "next/link";
 
 export default function Home() {
   console.log("Executing Home component...");
@@ -13,6 +14,9 @@ export default function Home() {
       />
       <h1>Welcome to this NextJS Course!</h1>
       <p>🔥 Let&apos;s get started! 🔥</p>
+      <p>
+        <Link href="/about">About Us</Link>
+      </p>
     </main>
   );
 }
