@@ -5,11 +5,20 @@ export default function Home() {
   console.log("Executing Home component...");
   return (
     <main>
-      <Header />
-      <p>🔥 Let&apos;s get started! 🔥</p>
-      <p>
-        <Link href="/about">About Us</Link>
-      </p>
+      <h1 style={{ color: "white", textAlign: "center" }}>
+        Time to get started!
+      </h1>
+      <div className="post">
+        <p>
+          <Link href="/meals">맛집</Link>
+        </p>
+        <p>
+          <Link href="/meals/share">맛집 공유</Link>
+        </p>
+        <p>
+          <Link href="/community">커뮤니티</Link>
+        </p>
+      </div>
     </main>
   );
 }
