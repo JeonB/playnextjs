@@ -11,12 +11,13 @@ export default function MainHeader() {
       <MainHeaderBackground />
       <header className={classes.header}>
         <Link className={classes.logo} href="/">
-          <Image src={logoImg} alt="접시위음식" priority></Image>NextLevel Food
+          <Image src={logoImg} alt="접시 위 음식" priority></Image>NextLevel
+          Food
         </Link>
         <nav className={classes.nav}>
           <ul>
             <li>
-              <NavLink href="/meals">음식 맛 보러가기</NavLink>
+              <NavLink href="/meals">요리 살펴보기</NavLink>
             </li>
             <li>
               <NavLink href="/community">커뮤니티</NavLink>

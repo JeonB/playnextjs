@@ -12,7 +12,7 @@ export default function CommunityPage() {
         <h1>
           One shared passion: <span className={classes.highlight}>Food</span>
         </h1>
-        <p>Join our community and share your favorite recipes!</p>
+        <p>커뮤니티에 참여하고 레시피를 공유해보세요!</p>
       </header>
       <main className={classes.main}>
         <h2>Community Perks</h2>
@@ -20,18 +20,18 @@ export default function CommunityPage() {
         <ul className={classes.perks}>
           <li>
             <Image src={mealIcon} alt="A delicious meal" />
-            <p>Share & discover recipes</p>
+            <p>마음에 드는 레시피를 찾아보세요!</p>
           </li>
           <li>
             <Image src={communityIcon} alt="A crowd of people, cooking" />
-            <p>Find new friends & like-minded people</p>
+            <p>마음이 맞는 친구를 사겨볼 기회입니다</p>
           </li>
           <li>
             <Image
               src={eventsIcon}
               alt="A crowd of people at a cooking event"
             />
-            <p>Participate in exclusive events</p>
+            <p>한정 이벤트</p>
           </li>
         </ul>
       </main>

@@ -13,6 +13,7 @@ export default function NavLink({
 }) {
   const path = usePathname();
   return (
+    // 현재 링크가 활성화되어 있으면 active 클래스를 추가. usePathname을 통해 현재 경로 확인 후 클래스 적용
     <Link
       href={href}
       className={
