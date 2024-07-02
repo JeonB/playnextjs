@@ -1,8 +1,16 @@
 import Link from "next/link";
 import classes from "./page.module.css";
 import MealsGrid from "@/components/meals/meals-grid";
+import { getMeals } from "@/lib/meal";
+import { Suspense } from "react";
+import MealsLoadingPage from "./loading-out";
 
-const MealsPage = () => {
+async function Meals() {
+  const meals = await getMeals();
+  return <MealsGrid meals={meals} />;
+}
+export const MealsPage = () => {
+  // const meals = await getMeals();
   return (
     <>
       <header className={classes.header}>
@@ -16,7 +24,12 @@ const MealsPage = () => {
         </p>
       </header>
       <main className={classes.main}>
-        <MealsGrid meals={[]} />
+        {/* Suspense는 데이터가 완전히 불러와질 때까지 대체 데이터를 보여줌 */}
+        <Suspense
+          fallback={<p className={classes.loading}>식사를 불러오는 중...</p>}
+        >
+          <Meals />
+        </Suspense>
       </main>
     </>
   );

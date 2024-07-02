@@ -1,13 +1,15 @@
 import MealItem from "./meal-item";
 import classes from "./meals-grid.module.css";
 
-interface Meal {
-  id: string;
-  title: string;
+export interface Meal {
+  id: number;
   slug: string;
+  title: string;
   image: string;
   summary: string;
+  instructions: string;
   creator: string;
+  creator_email: string;
 }
 
 export default function MealsGrid({ meals }: { meals: Meal[] }) {
