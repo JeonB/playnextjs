@@ -9,3 +9,8 @@ export const getMeals = async () => {
   const meals = db.prepare("SELECT * FROM meals").all() as Meal[]; // all() 여러개의 데이터를 가져온. get()은 하나만 가져옴. run()은 데이터를 생성함.
   return meals;
 };
+
+export async function getMeal(slug: string) {
+  const meal = db.prepare("SELECT * FROM meals WHERE slug = ?").get() as Meal;
+  return meal;
+}
