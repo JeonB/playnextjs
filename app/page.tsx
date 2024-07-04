@@ -24,9 +24,9 @@ export default function Home() {
         <section className={classes.section}>
           <h2>How it works</h2>
           <p>
-            NextLevel Food is a platform for foodies to share their favorite
-            recipes with the world. It&apos;s a place to discover new dishes,
-            and to connect with other food lovers.
+            NextLevel Food는 미식가들이 좋아하는 요리법을 전 세계와 공유할 수
+            있는 플랫폼입니다. 새로운 요리를 발견하고 다른 음식 애호가들과
+            교류할 수 있는 장소입니다.
           </p>
           <p>
             NextLevel Food is a place to discover new dishes, and to connect
@@ -37,13 +37,13 @@ export default function Home() {
         <section className={classes.section}>
           <h2>Why NextLevel Food?</h2>
           <p>
-            NextLevel Food is a platform for foodies to share their favorite
-            recipes with the world. It&apos;s a place to discover new dishes,
-            and to connect with other food lovers.
+            NextLevel Food는 미식가들이 좋아하는 요리법을 전 세계와 공유할 수
+            있는 플랫폼입니다. 새로운 요리를 발견하고 다른 음식 애호가들과
+            교류할 수 있는 장소입니다.
           </p>
           <p>
-            NextLevel Food is a place to discover new dishes, and to connect
-            with other food lovers.
+            NextLevel Food는 새로운 요리를 발견하고 다른 음식 애호가들과 소통할
+            수 있는 장소입니다.
           </p>
         </section>
       </main>
