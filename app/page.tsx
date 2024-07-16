@@ -12,7 +12,7 @@ export default function Home() {
         <div>
           <div className={classes.hero}>
             <h1>개쩌는 음식들을 경험해보세요!</h1>
-            <p>전 세계 음식을 맛 보고 공유하기123123</p>
+            <p>전 세계 음식을 맛 보고 공유하기</p>
           </div>
           <div className={classes.cta}>
             <Link href="/community">커뮤니티</Link>

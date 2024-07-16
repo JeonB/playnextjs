@@ -5,21 +5,6 @@ import slugify from "slugify";
 import fs from "node:fs";
 const db = sql("meals.db");
 
-export interface Meals {
-  id: number;
-  slug: string;
-  title: string;
-  image:
-    | string
-    | {
-        name: string;
-      };
-  summary: string;
-  instructions: string;
-  creator: string;
-  creator_email: string;
-}
-
 export const getMeals = async () => {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   //   throw new Error("Failed to fetch meals");
@@ -34,21 +19,36 @@ export function getMeal(slug: string) {
   return meal;
 }
 
-export async function saveMeal(meal: Meals) {
+export async function saveMeal(meal: Meal) {
   meal.slug = slugify(meal.title, { lower: true });
   meal.instructions = xss(meal.instructions);
 
-  const extension = meal.image.name.split(".").pop();
-  const filename = `${meal.slug}.${extension}`;
+  let filename;
+  if (meal.image instanceof File) {
+    const extension = meal.image.name.split(".").pop();
+    filename = `${meal.slug}.${extension}`;
+  } else {
+    // meal.image가 예상한 유형이 아닐 때의 처리
+    throw new Error("Invalid image type");
+  }
 
   const stream = fs.createWriteStream(`public/images/${filename}`);
-  const bufferedImage = await meal.image.arrayBuffer();
-
-  stream.write(Buffer.from(bufferedImage), (error) => {
-    if (error) {
-      throw new Error("error");
-    }
-  });
-
+  if (meal.image instanceof File) {
+    const bufferedImage = await meal.image.arrayBuffer();
+    stream.write(Buffer.from(bufferedImage), (error) => {
+      if (error) {
+        throw new Error("error writing image to file");
+      }
+    });
+  } else {
+    // meal.image가 Blob 또는 File 객체가 아닐 때의 처리
+    throw new Error("meal.image must be a File");
+  }
   meal.image = `/images/${filename}`;
+
+  db.prepare(
+    `
+    INSERT INTO meals ( title, summary, instructions, creator, creator_email, image,slug)
+    VALUES (@title, @summary, @instructions, @creator, @creator_email, @image, @slug)`
+  ).run(meal);
 }

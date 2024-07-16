@@ -46,7 +46,6 @@ export default function ImagePicker({ label, name }: imagePickerProps) {
               fill
             />
           )}
-          {!pickedImage && <p>No image picked yet.</p>}
         </div>
         <input
           className={classes.input}

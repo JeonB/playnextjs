@@ -5,13 +5,7 @@ export interface Meal {
   id: number;
   slug: string;
   title: string;
-  image:
-    | string
-    | {
-        [x: string]: any;
-        name: string;
-        src: string;
-      };
+  image: string | File;
   summary: string;
   instructions: string;
   creator: string;

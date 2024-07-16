@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import classes from "./meal-item.module.css";
+import { Meal } from "./meals-grid";
 
 export default function MealItem({
   title,
@@ -9,18 +10,13 @@ export default function MealItem({
   image,
   summary,
   creator,
-}: {
-  title: string;
-  slug: string;
-  image: string;
-  summary: string;
-  creator: string;
-}) {
+}: Meal) {
+  const imageSrc = typeof image === "string" ? image : image.name;
   return (
     <article className={classes.meal}>
       <header>
         <div className={classes.image}>
-          <Image src={image} alt={title} fill />
+          <Image src={imageSrc} alt={title} fill />
         </div>
         <div className={classes.headerText}>
           <h2>{title}</h2>
