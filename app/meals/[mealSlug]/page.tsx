@@ -21,7 +21,11 @@ const MealDetailsPage: NextPage<MealSharePageProps> = ({ params }) => {
     <>
       <header className={classes.header}>
         <div className={classes.image}>
-          <Image src={meal.image} alt={meal.title} fill />
+          <Image
+            src={typeof meal.image === "string" ? meal.image : meal.image.name}
+            alt={meal.title}
+            fill
+          />
         </div>
         <div className={classes.headerText}>
           <h1>{meal.title}</h1>

@@ -9,7 +9,7 @@ async function Meals() {
   const meals = await getMeals();
   return <MealsGrid meals={meals} />;
 }
-export const MealsPage = () => {
+const MealsPage = () => {
   // const meals = await getMeals();
   return (
     <>
