@@ -1,26 +1,14 @@
+"use client";
 import ImagePicker from "@/components/meals/image-picker";
 import classes from "./page.module.css";
+import { shareMeal } from "@/lib/action";
 
 export default function ShareMealPage() {
-  const shareMeal = async (formData: { get: (arg0: string) => any }) => {
-    "use server"; // server action 오직 서버에서만 사용하게 보장하는 키워드
-
-    const meal = {
-      creator_email: formData.get("email"),
-      title: formData.get("title"),
-      summary: formData.get("summary"),
-      instructions: formData.get("instructions"),
-      image: formData.get("image"),
-      creator: formData.get("name"),
-    };
-    console.log(meal);
-  };
-
   return (
     <>
       <header className={classes.header}>
         <h1>
-          ´ Share your <span className={classes.highlight}>favorite meal</span>
+          Share your <span className={classes.highlight}>favorite meal</span>
         </h1>
         <p>Or any other meal you feel needs sharing!</p>
       </header>
