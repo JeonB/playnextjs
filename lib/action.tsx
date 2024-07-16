@@ -3,6 +3,7 @@
 import { Meal } from "@/components/meals/meals-grid";
 import { saveMeal } from "./meals";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 function isInvalidText(text: string) {
   return !text || text.trim() === "";
@@ -34,5 +35,6 @@ export const shareMeal = async (
     };
   }
   await saveMeal(meal);
+  revalidatePath("/meals");
   redirect("/meals");
 };
