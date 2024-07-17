@@ -10,6 +10,16 @@ interface MealSharePageProps {
   };
 }
 
+export async function generateMetadata({ params }: MealSharePageProps) {
+  const meal = getMeal(params.mealSlug);
+  if (!meal) {
+    notFound();
+  }
+  return {
+    title: meal.title,
+    description: meal.summary,
+  };
+}
 const MealDetailsPage: NextPage<MealSharePageProps> = ({ params }) => {
   const meal = getMeal(params.mealSlug);
   if (!meal) {

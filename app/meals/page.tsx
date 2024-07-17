@@ -6,7 +6,7 @@ import { Suspense } from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "NextLevel Food",
+  title: "모든 요리",
   description: "커뮤니티에서 제공되는 맛있는 요리를 둘러보세요.",
 };
 async function Meals() {
