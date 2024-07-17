@@ -71,3 +71,11 @@ class MinHeap {
     }
   };
 }
+
+const minHeap = new MinHeap();
+minHeap.insert(7);
+minHeap.insert(3);
+minHeap.insert(2);
+minHeap.insert(1);
+minHeap.remove();
+console.log(minHeap); // 1

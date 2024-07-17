@@ -3,14 +3,17 @@ import classes from "./page.module.css";
 import MealsGrid from "@/components/meals/meals-grid";
 import { getMeals } from "@/lib/meals";
 import { Suspense } from "react";
-import MealsLoadingPage from "./loading-out";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "NextLevel Food",
+  description: "커뮤니티에서 제공되는 맛있는 요리를 둘러보세요.",
+};
 async function Meals() {
   const meals = await getMeals();
   return <MealsGrid meals={meals} />;
 }
 const MealsPage = () => {
-  // const meals = await getMeals();
   return (
     <>
       <header className={classes.header}>
